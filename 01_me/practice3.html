@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAN科技｜創辦人介紹</title>
+
+    <style>
+        /* 網頁基本設定 */
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            background-color: #f4f8fb;
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        /* 整體內容置中 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* 標題大小 */
+        h1 {
+            font-size: 42px;
+            color: #1e3a5f;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #2563eb;
+            margin-top: 40px;
+        }
+
+        /* 段落 */
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        /* 圖片大小 */
+        img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #2563eb;
+            margin-bottom: 15px;
+        }
+
+        figcaption {
+            font-size: 16px;
+            color: #666;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        /* 美化按鈕 */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 28px;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>YAN科技 創辦人介紹</h1>
+        </header>
+
+        <main>
+
+            <section>
+                <figure>
+                    <img src="images/avatar.png" alt="YAN 創辦人照片">
+                    <figcaption>YAN｜YAN科技創辦人</figcaption>
+                </figure>
+            </section>
+
+            <section>
+                <h2>關於創辦人</h2>
+                <p>
+                    我是 YAN，11月2日出生，擁有專科學歷，曾擔任工程師多年，
+                    長期深耕於數位工具與科技應用領域。一路走來，我始終相信，
+                    科技不應該只是冰冷的程式碼，而是能真正解決問題、提升效率，
+                    甚至讓工作與生活變得更輕鬆的最佳夥伴。
+                </p>
+            </section>
+
+            <section>
+                <h2>創立理念</h2>
+                <p>
+                    創立 YAN科技，正是因為我希望將多年累積的技術經驗與實務觀察，
+                    轉化為更有價值的數位解決方案。身為工程師出身的創業者，
+                    我習慣用邏輯思考問題，也喜歡用創新的方式尋找答案。
+                </p>
+                <p>
+                    對我而言，每一項技術工具都像是一把鑰匙，
+                    只要運用得當，就能打開更多可能性。
+                </p>
+            </section>
+
+            <section>
+                <h2>企業願景</h2>
+                <p>
+                    在快速變化的數位時代，我相信持續學習與勇於嘗試是企業成長的關鍵。
+                    因此，YAN科技不僅專注於技術開發，更重視使用者體驗與實際需求，
+                    希望透過簡單、高效且可靠的數位工具，
+                    協助企業與個人提升競爭力。
+                </p>
+            </section>
+
+            <section>
+                <h2>未來展望</h2>
+                <p>
+                    未來，我期待與更多志同道合的夥伴攜手合作，
+                    讓科技不只是創新，更能真正創造價值，
+                    為每一位客戶帶來更美好的數位體驗。
+                </p>
+
+                <a href="#" class="btn">聯絡我們</a>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>© 2026 YAN科技 All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+<script>
+
+// 1. 建立按鈕
+const darkBtn = document.createElement("button");
+darkBtn.textContent = "切換深色 / 淺色";
+
+const hideBtn = document.createElement("button");
+hideBtn.textContent = "顯示 / 隱藏介紹";
+
+const titleBtn = document.createElement("button");
+titleBtn.textContent = "改變標題文字";
+
+// 加到頁面底部
+document.body.appendChild(document.createElement("hr"));
+document.body.appendChild(darkBtn);
+document.body.appendChild(hideBtn);
+document.body.appendChild(titleBtn);
+
+
+// ====================
+// 深色 / 淺色模式
+// ====================
+
+
+let darkMode = false;
+
+darkBtn.onclick = function () {
+
+    const container = document.querySelector(".container");
+    const h1 = document.querySelector("h1");
+    const h2s = document.querySelectorAll("h2");
+    const ps = document.querySelectorAll("p");
+    const figcaption = document.querySelector("figcaption");
+
+    if (!darkMode) {
+
+        // 深色模式
+        document.body.style.backgroundColor = "#121212";
+
+        container.style.backgroundColor = "#1f2937";
+
+        h1.style.color = "#60a5fa";
+
+        h2s.forEach(function(h2){
+            h2.style.color = "#93c5fd";
+        });
+
+        ps.forEach(function(p){
+            p.style.color = "#f3f4f6";
+        });
+
+        if(figcaption){
+            figcaption.style.color = "#d1d5db";
+        }
+
+        darkMode = true;
+
+    } else {
+
+        // 淺色模式
+        document.body.style.backgroundColor = "#f4f8fb";
+
+        container.style.backgroundColor = "#ffffff";
+
+        h1.style.color = "#1e3a5f";
+
+        h2s.forEach(function(h2){
+            h2.style.color = "#2563eb";
+        });
+
+        ps.forEach(function(p){
+            p.style.color = "#333333";
+        });
+
+        if(figcaption){
+            figcaption.style.color = "#666666";
+        }
+
+        darkMode = false;
+
+    }
+
+};
+
+
+
+
+
+// ====================
+// 顯示 / 隱藏介紹文字
+// ====================
+
+let visible = true;
+
+hideBtn.onclick = function () {
+
+    const sections = document.querySelectorAll("section");
+
+    sections.forEach(function(section) {
+
+        section.style.display =
+            visible ? "none" : "block";
+
+    });
+
+    visible = !visible;
+
+};
+
+
+// ====================
+// 改變標題文字
+// ====================
+
+titleBtn.onclick = function () {
+
+    const title = document.querySelector("h1");
+
+    if (title.textContent === "YAN科技 創辦人介紹") {
+
+        title.textContent = "歡迎來到 YAN科技";
+
+    } else {
+
+        title.textContent = "YAN科技 創辦人介紹";
+
+    }
+
+};
+
+</script>
+
+</body>
+</html>
