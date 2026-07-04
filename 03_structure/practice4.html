@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI機械自動化｜智慧設計・精準製造</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+            --primary:#1F3A5F;
+            --secondary:#2F80ED;
+            --bg:#F5F7FA;
+        }
+
+        *{
+            font-family:'Noto Sans TC',sans-serif;
+        }
+
+        body{
+            background:#fff;
+        }
+
+        /* NAV */
+        .navbar{
+            background:#fff;
+            box-shadow:0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        .navbar-brand{
+            font-weight:800;
+            color:var(--primary)!important;
+        }
+
+        .menu-btn{
+            border:none;
+            background:transparent;
+            font-size:1.6rem;
+            color:var(--primary);
+        }
+
+        /* OFFCANVAS */
+        .offcanvas-header{
+            border-bottom:1px solid #eee;
+        }
+
+        .offcanvas-title{
+            font-weight:800;
+            color:var(--primary);
+        }
+
+        .offcanvas-body a{
+            display:block;
+            padding:14px 10px;
+            font-weight:600;
+            color:#333;
+            border-bottom:1px solid #f1f1f1;
+            text-decoration:none;
+        }
+
+        .offcanvas-body a:hover{
+            color:var(--secondary);
+        }
+
+        /* HERO */
+        .hero{
+            padding:110px 20px 60px;
+        }
+
+        .hero h1{
+            font-size:2rem;
+            font-weight:800;
+            color:var(--primary);
+        }
+
+        .hero p{
+            color:#666;
+            margin-top:15px;
+        }
+
+        .btn-main{
+            background:var(--secondary);
+            color:#fff;
+            padding:12px 24px;
+            border-radius:10px;
+            font-weight:700;
+        }
+
+        .btn-main:hover{
+            background:#1f6fe0;
+            color:#fff;
+        }
+
+        /* SECTION */
+        .section{
+            padding:80px 20px;
+        }
+
+        .card-box{
+            background:#fff;
+            border:1px solid #edf2f7;
+            border-radius:14px;
+            padding:22px;
+            box-shadow:0 6px 20px rgba(0,0,0,0.05);
+            height:100%;
+        }
+
+        .icon{
+            font-size:2rem;
+            color:var(--secondary);
+        }
+
+        footer{
+            background:#152B46;
+            color:#d6dce6;
+            padding:30px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar fixed-top">
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <a class="navbar-brand" href="#">AI機械自動化</a>
+
+        <!-- Sidebar Button -->
+        <button class="menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+            <i class="bi bi-list"></i>
+        </button>
+
+    </div>
+</nav>
+
+<!-- OFFCANVAS SIDEBAR -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">選單</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <a href="#">首頁</a>
+        <a href="#">關於我們</a>
+        <a href="#">核心服務</a>
+        <a href="#">解決方案</a>
+        <a href="#">成功案例</a>
+        <a href="#">聯絡我們</a>
+    </div>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container text-center">
+
+        <h1>AI驅動機械設計<br>打造智慧製造新時代</h1>
+
+        <p>
+            智慧設計・精準製造・加速未來<br>
+            透過AI與工程整合，提升研發效率與製造能力。
+        </p>
+
+        <a href="#" class="btn btn-main mt-3">立即諮詢</a>
+
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card-box">
+                    <i class="bi bi-cpu icon"></i>
+                    <h5 class="mt-3 fw-bold">AI設計整合</h5>
+                    <p class="text-muted">AI輔助工程設計，加速產品開發流程。</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card-box">
+                    <i class="bi bi-gear icon"></i>
+                    <h5 class="mt-3 fw-bold">機構自動化</h5>
+                    <p class="text-muted">提升製造效率與系統穩定性。</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card-box">
+                    <i class="bi bi-diagram-3 icon"></i>
+                    <h5 class="mt-3 fw-bold">流程優化</h5>
+                    <p class="text-muted">縮短產品設計與生產週期。</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+    <div class="container text-center">
+
+        <h2 class="fw-bold" style="color:var(--primary);">
+            開始打造你的智慧製造系統
+        </h2>
+
+        <p class="text-muted mt-3">
+            讓 AI 成為企業研發與製造的核心引擎
+        </p>
+
+        <a href="#" class="btn btn-main mt-3">立即聯絡我們</a>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container text-center">
+        <strong>AI機械自動化</strong>
+        <div class="mt-2">智慧設計・精準製造・加速未來</div>
+        <small class="d-block mt-2">© 2026 All Rights Reserved</small>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
