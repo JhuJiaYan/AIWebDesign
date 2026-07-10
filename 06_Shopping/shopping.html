@@ -1,0 +1,439 @@
+﻿<!-- shopping.html -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>shopping.html</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#1F3A5F;
+    --secondary:#2F80ED;
+    --accent:#FF8C42;
+    --bg:#F5F7FA;
+}
+
+body{
+    background:var(--bg);
+    font-family:"Microsoft JhengHei",sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-card{
+    background:#fff;
+    border:none;
+    border-radius:18px;
+    padding:60px 40px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    text-align:center;
+    max-width:650px;
+    width:100%;
+}
+
+.hero-card h1{
+    color:var(--primary);
+    font-size:2rem;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.hero-card p{
+    color:#555;
+    margin-bottom:35px;
+}
+
+.btn-buy{
+    background:var(--accent);
+    border:none;
+    color:#fff;
+    padding:14px 40px;
+    font-size:1.15rem;
+    font-weight:bold;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.btn-buy:hover{
+    background:#f07a28;
+    transform:translateY(-2px);
+}
+
+.modal-header{
+    background:var(--primary);
+    color:#fff;
+}
+
+.product-img{
+    width:100%;
+    max-height:320px;
+    object-fit:contain;
+    border-radius:12px;
+    background:#fff;
+    border:1px solid #eee;
+    padding:10px;
+}
+
+.price-box{
+    background:#F8FAFC;
+    border-radius:12px;
+    padding:18px;
+    margin-top:18px;
+}
+
+.old-price{
+    text-decoration:line-through;
+    color:#888;
+}
+
+.new-price{
+    color:#e53935;
+    font-size:2rem;
+    font-weight:bold;
+}
+
+.summary-box{
+    background:#EEF4FF;
+    border-radius:10px;
+    padding:15px;
+    margin-top:20px;
+}
+
+.cta{
+    color:var(--accent);
+    font-size:1.2rem;
+    font-weight:bold;
+}
+
+.loading-box{
+    display:none;
+    margin-top:20px;
+}
+
+.toast-container{
+    z-index:5000;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="hero-card">
+
+<h1>AI數位機械設計</h1>
+
+<p>
+智慧設計 × AI自動化 × 工業效率提升
+</p>
+
+<button class="btn btn-buy" id="buyNowBtn">
+立即購買
+</button>
+
+</div>
+
+<!-- Toast -->
+
+<div class="toast-container position-fixed top-0 end-0 p-3">
+
+<div id="cartToast" class="toast text-bg-success border-0">
+
+<div class="toast-header">
+<strong class="me-auto">系統通知</strong>
+<button class="btn-close" data-bs-dismiss="toast"></button>
+</div>
+
+<div class="toast-body">
+已加入購物車 ✅
+</div>
+
+</div>
+
+</div>
+
+<!-- 購買 Modal -->
+
+<div class="modal fade" id="shoppingModal">
+
+<div class="modal-dialog modal-lg modal-dialog-centered">
+
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title">立即購買</h5>
+<button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<div class="row g-4">
+
+<div class="col-lg-5">
+
+<img src="images/product1.png" class="product-img" alt="產品">
+
+</div>
+
+<div class="col-lg-7">
+
+<h3 class="fw-bold text-primary">
+AI機械自動化設計鍵盤
+</h3>
+
+<div class="price-box">
+
+<div class="old-price">
+原價 NT$ 6990
+</div>
+
+<div class="new-price">
+特價 NT$3990
+</div>
+
+</div>
+
+<div class="mt-4">
+
+<label class="form-label fw-bold">
+購買數量
+</label>
+
+<input
+type="number"
+class="form-control"
+id="qty"
+value="1"
+min="1"
+max="10">
+
+</div>
+
+<div class="summary-box">
+
+<div class="d-flex justify-content-between">
+
+<div>數量：</div>
+<div id="showQty">1</div>
+
+</div>
+
+<hr>
+
+<div class="d-flex justify-content-between">
+
+<div>小計：</div>
+<div class="fw-bold text-danger" id="subtotal">
+NT$3990
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-4">
+
+<p class="mb-3">
+導入 AI數位機械設計，讓設計流程更快、更精準、更標準化。降低重複作業與人為失誤，縮短開發時程、提升團隊效率，協助企業加速智慧製造布局，創造更高競爭優勢。
+</p>
+
+<div class="cta">
+立即提升設計效率
+</div>
+
+</div>
+
+<div class="loading-box text-center" id="loadingBox">
+
+<div class="spinner-border text-primary"></div>
+
+<div class="mt-2">
+處理中…
+</div>
+
+</div>
+
+<div class="d-grid mt-4">
+
+<button class="btn btn-primary btn-lg" id="checkoutBtn">
+結帳
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+關閉
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 確認 Modal -->
+
+<div class="modal fade" id="confirmModal">
+
+<div class="modal-dialog modal-dialog-centered">
+
+<div class="modal-content">
+
+<div class="modal-header bg-success text-white">
+
+<h5 class="modal-title">
+確認購買資訊
+</h5>
+
+<button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+
+</div>
+
+<div class="modal-body" id="confirmContent">
+
+</div>
+
+<div class="modal-footer">
+
+<button
+class="btn btn-success"
+data-bs-dismiss="modal">
+完成
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+const PRICE=3990;
+const ORIGINAL=6990;
+
+const buyBtn=document.getElementById("buyNowBtn");
+const qty=document.getElementById("qty");
+const subtotal=document.getElementById("subtotal");
+const showQty=document.getElementById("showQty");
+
+const shoppingModal=new bootstrap.Modal(document.getElementById("shoppingModal"));
+
+const toast=new bootstrap.Toast(document.getElementById("cartToast"),{
+delay:2500
+});
+
+const confirmModal=new bootstrap.Modal(document.getElementById("confirmModal"));
+
+function updatePrice(){
+
+let q=parseInt(qty.value);
+
+if(isNaN(q)) q=1;
+
+if(q<1) q=1;
+
+if(q>10) q=10;
+
+qty.value=q;
+
+showQty.innerHTML=q;
+
+subtotal.innerHTML="NT$"+(q*PRICE).toLocaleString();
+
+}
+
+qty.addEventListener("input",updatePrice);
+
+updatePrice();
+
+buyBtn.onclick=function(){
+
+shoppingModal.show();
+
+toast.show();
+
+}
+
+document.getElementById("checkoutBtn").onclick=function(){
+
+let q=parseInt(qty.value);
+
+let total=q*PRICE;
+
+console.log("數量："+q);
+console.log("單價："+PRICE);
+console.log("小計："+total);
+
+document.getElementById("loadingBox").style.display="block";
+
+this.disabled=true;
+
+setTimeout(()=>{
+
+document.getElementById("loadingBox").style.display="none";
+
+this.disabled=false;
+
+document.getElementById("confirmContent").innerHTML=`
+
+<table class="table">
+
+<tr>
+<th>產品名稱</th>
+<td>AI機械自動化設計鍵盤</td>
+</tr>
+
+<tr>
+<th>數量</th>
+<td>${q}</td>
+</tr>
+
+<tr>
+<th>單價</th>
+<td>NT$${PRICE.toLocaleString()}</td>
+</tr>
+
+<tr>
+<th>總金額</th>
+<td class="fw-bold text-danger">
+NT$${total.toLocaleString()}
+</td>
+</tr>
+
+</table>
+
+`;
+
+confirmModal.show();
+
+},1000);
+
+}
+
+</script>
+
+</body>
+</html>
