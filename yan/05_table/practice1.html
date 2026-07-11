@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>顧客資料結構表</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      background-color: #f5f7fa;
+      color: #1f2937;
+    }
+
+    .table-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .table-header {
+      padding: 24px 28px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .table-header h1 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.4;
+      color: #111827;
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 780px;
+    }
+
+    thead {
+      background-color: #1f2937;
+      color: #ffffff;
+    }
+
+    th,
+    td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+      white-space: nowrap;
+    }
+
+    th {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    td {
+      font-size: 14px;
+      color: #374151;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+
+    tbody tr:hover {
+      background-color: #eef2ff;
+    }
+
+    .membership {
+      display: inline-block;
+      min-width: 72px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .standard {
+      background-color: #e5e7eb;
+      color: #374151;
+    }
+
+    .silver {
+      background-color: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .gold {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+
+    .platinum {
+      background-color: #dcfce7;
+      color: #166534;
+    }
+  </style>
+</head>
+<body>
+  <main class="table-container">
+    <header class="table-header">
+      <h1>顧客資料結構表</h1>
+    </header>
+
+    <section class="table-wrapper">
+      <table id="customerTable">
+        <thead>
+          <tr>
+            <th scope="col">顧客編號 (Customer ID)</th>
+            <th scope="col">姓名 (Name)</th>
+            <th scope="col">電子郵件 (Email)</th>
+            <th scope="col">會員等級 (Membership Level)</th>
+            <th scope="col">註冊日期 (Registration Date)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CUST-001</td>
+            <td>林雅婷</td>
+            <td>yating.lin@example.com</td>
+            <td><span class="membership standard">一般會員</span></td>
+            <td>2025-01-12</td>
+          </tr>
+          <tr>
+            <td>CUST-002</td>
+            <td>陳柏宇</td>
+            <td>boyu.chen@example.com</td>
+            <td><span class="membership silver">銀級會員</span></td>
+            <td>2025-02-03</td>
+          </tr>
+          <tr>
+            <td>CUST-003</td>
+            <td>王思涵</td>
+            <td>sihan.wang@example.com</td>
+            <td><span class="membership gold">金級會員</span></td>
+            <td>2025-02-18</td>
+          </tr>
+          <tr>
+            <td>CUST-004</td>
+            <td>張家豪</td>
+            <td>jiahao.chang@example.com</td>
+            <td><span class="membership platinum">白金會員</span></td>
+            <td>2025-03-07</td>
+          </tr>
+          <tr>
+            <td>CUST-005</td>
+            <td>劉佳穎</td>
+            <td>jiaying.liu@example.com</td>
+            <td><span class="membership silver">銀級會員</span></td>
+            <td>2025-03-21</td>
+          </tr>
+          <tr>
+            <td>CUST-006</td>
+            <td>黃冠廷</td>
+            <td>guanting.huang@example.com</td>
+            <td><span class="membership standard">一般會員</span></td>
+            <td>2025-04-09</td>
+          </tr>
+          <tr>
+            <td>CUST-007</td>
+            <td>吳品萱</td>
+            <td>pinxuan.wu@example.com</td>
+            <td><span class="membership gold">金級會員</span></td>
+            <td>2025-04-26</td>
+          </tr>
+          <tr>
+            <td>CUST-008</td>
+            <td>許哲銘</td>
+            <td>zheming.hsu@example.com</td>
+            <td><span class="membership platinum">白金會員</span></td>
+            <td>2025-05-15</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    const customerTable = document.getElementById("customerTable");
+    customerTable.setAttribute("data-record-count", customerTable.tBodies[0].rows.length);
+  </script>
+</body>
+</html>

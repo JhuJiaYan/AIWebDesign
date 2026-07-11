@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YAN｜個人履歷</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{ background: radial-gradient(circle at top left,#2563eb 0%,transparent 30%), radial-gradient(circle at bottom right,#06b6d4 0%,transparent 30%), linear-gradient(135deg,#020617,#0f172a,#111827); color:#f8fafc; min-height:100vh; font-family:"Microsoft JhengHei",sans-serif; } /* 主標題 */ .hero-title{ color:#38bdf8; font-weight:800; letter-spacing:2px; text-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8, 0 0 40px rgba(56,189,248,.5); transition:.4s; } .hero-title:hover{ color:#67e8f9; transform:scale(1.05); } /* 頭像 */ .profile-img{ width:220px; max-width:100%; border-radius:50%; border:5px solid #38bdf8; box-shadow: 0 0 20px rgba(56,189,248,.5), 0 0 40px rgba(56,189,248,.3); transition:.5s; } .profile-img:hover{ transform:scale(1.08) rotate(3deg); box-shadow: 0 0 30px #38bdf8, 0 0 60px #38bdf8; } /* 卡片 */ .game-card{ background:rgba(255,255,255,.06); backdrop-filter:blur(12px); border:1px solid rgba(56,189,248,.25); border-radius:20px; overflow:hidden; transition:all .4s ease; color:#f8fafc; } .game-card:hover{ transform: translateY(-10px) scale(1.02); background: linear-gradient( 135deg, rgba(56,189,248,.15), rgba(99,102,241,.15) ); border-color:#38bdf8; box-shadow: 0 0 20px rgba(56,189,248,.4), 0 0 40px rgba(56,189,248,.25); } /* 卡片標題 */ .section-title{ color:#38bdf8; font-weight:700; transition:.3s; } .game-card:hover .section-title{ color:#67e8f9; text-shadow: 0 0 10px rgba(103,232,249,.8); } /* 卡片內文 */ .game-card p, .game-card li{ transition:.3s; } .game-card:hover p, .game-card:hover li{ color:#ffffff; } /* List */ .list-group-item{ background:transparent; color:#cbd5e1; border-color: rgba(255,255,255,.1); transition:.3s; } .list-group-item:hover{ background: rgba(56,189,248,.15); color:#ffffff; padding-left:25px; } /* Email 區塊 */ .email-card{ cursor:pointer; border:1px solid rgba(56,189,248,.3); transition:.4s; } .email-card:hover{ background: linear-gradient( 135deg, #0ea5e9, #2563eb ) !important; color:white; transform:scale(1.05); box-shadow: 0 0 20px rgba(56,189,248,.6); } .email-card:hover h6, .email-card:hover p, .email-card:hover small{ color:white; } /* Toast */ .toast{ border:none; box-shadow: 0 0 20px rgba(34,197,94,.5); } /* 滾動動畫 */ .game-card{ animation:floatCard 3s ease-in-out infinite; } .game-card:nth-child(2){ animation-delay:.5s; } .game-card:nth-child(3){ animation-delay:1s; } @keyframes floatCard{ 0%{ transform:translateY(0px); } 50%{ transform:translateY(-5px); } 100%{ transform:translateY(0px); } }
+</style>
+
+</head>
+
+<body>
+
+<div class="container py-5">
+<div class="text-center mb-5">
+    <img src="images/avatar.png" alt="YAN個人頭像" class="profile-img img-fluid mb-4">
+    <h1 class="hero-title">🎮 YAN｜科技創業者 & 工程師</h1>
+    <p class="lead">讓科技不只是創新，更能真正創造價值</p>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-lg-4">
+        <div class="card game-card h-100">
+            <div class="card-body">
+                <h3 class="section-title">📌 基本資料</h3>
+
+                <ul class="list-group list-group-flush mt-3">
+                    <li class="list-group-item">
+                        <strong>姓名：</strong>YAN
+                    </li>
+                    <li class="list-group-item">
+                        <strong>生日：</strong>11月2日
+                    </li>
+                    <li class="list-group-item">
+                        <strong>學歷：</strong>專科
+                    </li>
+                </ul>
+
+                <div id="emailCard" class="card email-card mt-4 bg-dark text-white">
+                    <div class="card-body text-center">
+                        <h6>📧 Email</h6>
+                        <p class="mb-0" id="emailText">yan@example.com</p>
+                        <small>點擊即可複製</small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card game-card h-100">
+            <div class="card-body">
+                <h3 class="section-title">⚙️ 專業背景</h3>
+
+                <p>
+                    曾擔任工程師多年，長期深耕於數位工具與科技應用領域。
+                </p>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">數位工具應用</li>
+                    <li class="list-group-item">科技解決方案規劃</li>
+                    <li class="list-group-item">工程技術實務經驗</li>
+                    <li class="list-group-item">創新產品思維</li>
+                    <li class="list-group-item">使用者需求分析</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card game-card h-100">
+            <div class="card-body">
+                <h3 class="section-title">🚀 自我介紹</h3>
+
+                <p>
+                    我是 YAN，始終相信科技不應該只是冰冷的程式碼，而是能真正解決問題、提升效率，甚至讓工作與生活變得更輕鬆的最佳夥伴。
+                </p>
+
+                <p>
+                    創立 YAN科技，是希望將多年累積的技術經驗與實務觀察，轉化為更有價值的數位解決方案。
+                </p>
+
+                <p>
+                    我習慣用邏輯思考問題，也喜歡用創新的方式尋找答案，希望透過簡單、高效且可靠的數位工具，協助企業與個人提升競爭力。
+                </p>
+
+                <p>
+                    未來期待與更多夥伴攜手合作，讓科技真正創造價值，帶來更美好的數位體驗。
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</div>
+
+<div class="toast-container">
+    <div id="copyToast" class="toast text-bg-success" role="alert">
+        <div class="toast-body">
+            已複製 email
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const emailCard = document.getElementById("emailCard");
+const emailText = document.getElementById("emailText");
+const toastElement = document.getElementById("copyToast");
+
+const toast = new bootstrap.Toast(toastElement,{
+    delay:2000
+});
+
+emailCard.addEventListener("click",async function(){
+
+    try{
+        await navigator.clipboard.writeText(emailText.textContent.trim());
+        toast.show();
+    }catch(error){
+        alert("複製失敗");
+    }
+
+});
+</script>
+
+</body>
+</html>

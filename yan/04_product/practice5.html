@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>公司作品集｜lightGallery</title>
+
+<!-- lightGallery CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
+
+<style>
+body{
+    margin:0;
+    font-family:"Microsoft JhengHei",sans-serif;
+    background:#0b1220;
+    color:#fff;
+}
+
+/* Header */
+header{
+    text-align:center;
+    padding:60px 20px 30px;
+}
+
+header h1{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+header p{
+    color:#94a3b8;
+}
+
+/* Gallery Grid */
+.gallery{
+    max-width:1100px;
+    margin:0 auto 80px;
+    padding:20px;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
+
+/* thumbnail */
+.gallery a{
+    display:block;
+    border-radius:12px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+    transition:.3s;
+}
+
+.gallery a:hover{
+    transform:translateY(-6px);
+}
+
+.gallery img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    display:block;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>YAN 科技公司｜作品展示</h1>
+    <p>lightGallery 企業級燈箱（含縮圖導航）</p>
+</header>
+
+<!-- ================= Gallery ================= -->
+<div id="lightgallery" class="gallery">
+
+    <a href="https://picsum.photos/1200/900?random=1">
+        <img src="https://picsum.photos/400/300?random=1">
+    </a>
+
+    <a href="https://picsum.photos/1200/900?random=2">
+        <img src="https://picsum.photos/400/300?random=2">
+    </a>
+
+    <a href="https://picsum.photos/1200/900?random=3">
+        <img src="https://picsum.photos/400/300?random=3">
+    </a>
+
+    <a href="https://picsum.photos/1200/900?random=4">
+        <img src="https://picsum.photos/400/300?random=4">
+    </a>
+
+    <a href="https://picsum.photos/1200/900?random=5">
+        <img src="https://picsum.photos/400/300?random=5">
+    </a>
+
+</div>
+
+<!-- lightGallery JS -->
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.umd.min.js"></script>
+
+<!-- Plugins -->
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/thumbnail/lg-thumbnail.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.umd.min.js"></script>
+
+<script>
+lightGallery(document.getElementById("lightgallery"), {
+    selector: "a",
+    plugins: [lgThumbnail, lgZoom],
+
+    speed: 400,
+
+    thumbnail: true,   // ✅ 縮圖列
+    zoom: true,        // ✅ 放大
+    download: false,   // 可改 true
+});
+</script>
+
+</body>
+</html>

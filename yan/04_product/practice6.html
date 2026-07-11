@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>SaaS Admin System V4</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0a0f1c;
+    color:#fff;
+}
+
+/* LOGIN */
+#loginPage{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.loginBox{
+    background:#111827;
+    padding:30px;
+    border-radius:10px;
+    width:300px;
+}
+
+input,button{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:none;
+    border-radius:6px;
+}
+
+/* APP */
+#app{
+    display:none;
+}
+
+/* SIDEBAR */
+.sidebar{
+    position:fixed;
+    width:200px;
+    height:100vh;
+    background:#111827;
+    padding:15px;
+}
+
+.sidebar button{
+    background:#1f2937;
+    color:#fff;
+    cursor:pointer;
+}
+
+/* MAIN */
+.main{
+    margin-left:220px;
+    padding:20px;
+}
+
+/* GRID */
+.grid{
+    column-count:3;
+    column-gap:10px;
+}
+
+.item{
+    break-inside:avoid;
+    margin-bottom:10px;
+}
+
+.item img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* UPLOAD */
+.uploadBox{
+    background:#111827;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+<div id="loginPage">
+    <div class="loginBox">
+        <h2>Admin Login</h2>
+        <input id="user" placeholder="帳號">
+        <input id="pass" type="password" placeholder="密碼">
+        <button onclick="login()">登入</button>
+    </div>
+</div>
+
+<!-- ================= APP ================= -->
+<div id="app">
+
+    <div class="sidebar">
+        <h3>Admin</h3>
+        <button onclick="show('all')">全部</button>
+        <button onclick="logout()">登出</button>
+    </div>
+
+    <div class="main">
+
+        <div class="uploadBox">
+            <h3>上傳作品</h3>
+            <input type="file" id="fileInput">
+            <input id="titleInput" placeholder="標題">
+            <button onclick="upload()">上傳</button>
+        </div>
+
+        <div id="grid" class="grid"></div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+<script>
+
+/* ================= AUTH ================= */
+function login(){
+    const u = document.getElementById("user").value;
+    const p = document.getElementById("pass").value;
+
+    if(u === "admin" && p === "1234"){
+        localStorage.setItem("auth", "ok");
+        start();
+    }else{
+        alert("錯誤");
+    }
+}
+
+function logout(){
+    localStorage.removeItem("auth");
+    location.reload();
+}
+
+/* ================= DB ================= */
+let DB = JSON.parse(localStorage.getItem("db") || "[]");
+
+/* ================= INIT ================= */
+function start(){
+    document.getElementById("loginPage").style.display="none";
+    document.getElementById("app").style.display="block";
+    render();
+}
+
+/* ================= UPLOAD ================= */
+function upload(){
+
+    const file = document.getElementById("fileInput").files[0];
+    const title = document.getElementById("titleInput").value;
+
+    if(!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        DB.push({
+            id: Date.now(),
+            title,
+            img: e.target.result
+        });
+
+        localStorage.setItem("db", JSON.stringify(DB));
+
+        render();
+    }
+
+    reader.readAsDataURL(file);
+}
+
+/* ================= RENDER ================= */
+function render(){
+
+    const grid = document.getElementById("grid");
+    grid.innerHTML = "";
+
+    DB.forEach(item => {
+
+        grid.innerHTML += `
+            <a class="item"
+               data-fancybox="gallery"
+               href="${item.img}">
+                <img src="${item.img}">
+            </a>
+        `;
+    });
+
+    Fancybox.destroy();
+    Fancybox.bind("[data-fancybox='gallery']");
+}
+
+/* ================= AUTO LOGIN ================= */
+if(localStorage.getItem("auth") === "ok"){
+    start();
+}
+
+</script>
+
+</body>
+</html>
